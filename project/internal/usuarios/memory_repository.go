@@ -1,13 +1,13 @@
 package usuarios
 
-var ps []Usuario
+var Usuarios []Usuario
 var lastID uint64 = 0
 
 type MemoryRepository struct {
 }
 
 func (m *MemoryRepository) GetAll() ([]Usuario, error) {
-	return ps, nil
+	return Usuarios, nil
 }
 
 func (m *MemoryRepository) Store(nome string, sobrenome string, email string, idade int, altura int, ativo bool, datacriacao string) (Usuario, error) {
@@ -22,7 +22,7 @@ func (m *MemoryRepository) Store(nome string, sobrenome string, email string, id
 		Ativo:       ativo,
 		DataCriacao: datacriacao,
 	}
-	ps = append(ps, p)
+	Usuarios = append(Usuarios, p)
 	return p, nil
 }
 
